@@ -1,0 +1,11 @@
+// VARIABLES:
+@import '../../styles/variables.scss';
+// CLASSES:
+@import '../../styles/classes.scss';
+// ANIMATIONS:
+@import '../../styles/animations.scss';
+
+.home-root {
+  @include fadeInAnimationSlower();
+  background: $backgroundColorPrimary;
+}

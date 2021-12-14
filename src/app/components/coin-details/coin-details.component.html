@@ -1,0 +1,73 @@
+<div class="root">
+  <div class="page-content">
+    <button
+      class="button"
+      routerLink="/"
+      [queryParams]="{
+        page: this.pageNumber + 1,
+        order: this.orderedBy,
+        name: this.filterByNameString,
+        symbol: this.filterBySymbolString
+      }"
+    >
+      Back to Home
+    </button>
+
+    <br />
+
+    <div *ngIf="!(coinDetails | async)" class="loading-container">
+      <!-- imported at app.module.ts: -->
+      <mat-progress-bar
+        class="progress-bar"
+        mode="indeterminate"
+      ></mat-progress-bar>
+      <p class="subtitle">{{ messageToUser }}</p>
+    </div>
+
+    <div *ngIf="coinDetails | async as coinDetailsRes">
+      <div class="description-container">
+        <div class="img-container">
+          <img class="coin-img" src="{{ coinDetailsRes.image.small }}" alt="" />
+        </div>
+
+        <p class="description">
+          <span class="identifier">Name:</span> {{ coinDetailsRes.id }}
+        </p>
+
+        <p class="description">
+          <span class="identifier">Symbol:</span> {{ coinDetailsRes.symbol }}
+        </p>
+
+        <p class="description">
+          <span class="identifier">Categories:</span
+          ><span *ngFor="let category of coinDetailsRes.categories">
+            {{ category }}
+          </span>
+          <span *ngIf="coinDetailsRes.categories.length === 0">
+            not available for this coin
+          </span>
+        </p>
+
+        <p class="description">
+          <span class="identifier">Homepage:</span>
+          <a href="{{ coinDetailsRes.links.homepage[0] }}" target="_blank">
+            {{ coinDetailsRes.links.homepage[0] }}</a
+          >
+        </p>
+
+        <p class="description">
+          <span class="identifier">Genesis Date:</span>
+          {{ coinDetailsRes.genesis_date }}
+          <span *ngIf="!coinDetailsRes.genesis_date"
+            >not available for this coin</span
+          >
+        </p>
+
+        <p class="description">
+          <span class="identifier">Current Price:</span>
+          {{ coinDetailsRes.market_data.current_price.usd }} dollars
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

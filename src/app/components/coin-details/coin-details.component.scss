@@ -1,0 +1,89 @@
+// VARIABLES:
+@import '../../../styles/variables.scss';
+// CLASSES:
+@import '../../../styles/classes.scss';
+
+.root {
+  position: relative;
+  margin-bottom: 100px;
+  color: white;
+  height: 100%;
+}
+.page-content {
+  max-width: $maxWidthContent;
+  margin-left: auto;
+  margin-right: auto;
+}
+.coins {
+  color: white;
+}
+.button {
+  @include buttonMain();
+  position: relative;
+  float: right;
+  top: 40px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-right: 20px !important;
+  width: 140px;
+  @media (max-width: $mobileView) {
+    width: 120px;
+  }
+}
+.description-container {
+  width: 100%;
+  padding: 20px 30px;
+  border-radius: 3px;
+  @media (max-width: $mobileView) {
+    padding: 15px;
+  }
+}
+.img-container {
+  min-height: 140px;
+  margin-left: 30px;
+  @media (max-width: $mobileView) {
+    margin-left: 10px;
+  }
+}
+.coin-img {
+  width: 120px;
+}
+.description {
+  font-size: 20px;
+  margin: 20px;
+  @media (max-width: $mobileView) {
+    margin: 10px 5px;
+    font-size: 18px;
+  }
+}
+.identifier {
+  color: #55a24f;
+  margin-right: 3px;
+}
+.description a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 140%;
+  margin: 0;
+  transition: 0.3s;
+  &:hover {
+    color: #55a24f;
+  }
+}
+.progress-bar {
+  margin-bottom: 40px;
+}
+.loading-container {
+  @include loadingContainer();
+  margin-top: 220px;
+}
+.subtitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: normal;
+  color: #55a24f;
+  @media (max-width: $mobileView) {
+    font-size: 18px;
+  }
+}

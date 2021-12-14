@@ -1,0 +1,43 @@
+<!--
+npm i swiper
+https://swiperjs.com/swiper-api
+https://swiperjs.com/demos
+-->
+<!-- [spaceBetween]="40" -->
+<div class="videos-slider-container">
+  <p class="videos-slider-title">Suggested Cryptocurrency Videos</p>
+  <swiper
+    class="mySwiper"
+    [slidesPerView]="4"
+    [navigation]="true"
+    [centeredSlides]="false"
+    [loop]="true"
+    [speed]="1000"
+    [scrollbar]="{ draggable: true }"
+    [breakpoints]="{
+      '@0.00': {
+        slidesPerView: 1
+      },
+      '@0.70': {
+        slidesPerView: 2
+      },
+      '@1.05': {
+        slidesPerView: 3
+      },
+      '@1.38': {
+        slidesPerView: 4
+      }
+    }"
+  >
+    <ng-template *ngFor="let url of urlSafe; let i = index" swiperSlide>
+      <div>
+        <iframe
+          class="videos-slider-iframe"
+          [src]="url"
+          allow="autoplay"
+        ></iframe>
+        <p class="videos-slider-coin-title">{{ videosList[i].title }}</p>
+      </div>
+    </ng-template>
+  </swiper>
+</div>

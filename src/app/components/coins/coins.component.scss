@@ -1,0 +1,148 @@
+// VARIABLES:
+@import '../../../styles/variables.scss';
+// CLASSES:
+@import '../../../styles/classes.scss';
+// ANIMATIONS:
+@import '../../../styles/animations.scss';
+
+.root {
+  background-color: $backgroundColorPrimary;
+}
+.content {
+  overflow: hidden; // TO HIDE the navibar elements outside
+  position: relative;
+  // max-width: $maxWidthContent;
+  margin-right: auto;
+  margin-left: auto;
+}
+.maxWidthClass {
+  max-width: $maxWidthContent;
+  margin-left: auto;
+  margin-right: auto;
+}
+.content-inner {
+  margin-bottom: 80px;
+}
+.loading-container {
+  @include loadingContainer();
+}
+.progress-bar {
+  margin-bottom: 40px;
+}
+.coin-grid-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: center;
+  @media (max-width: 1100px) {
+    grid-template-columns: 48% 48%;
+  }
+  @media (max-width: 700px) {
+    grid-template-columns: 100%;
+  }
+}
+.coin-card {
+  height: 180px;
+  overflow-y: scroll;
+  padding: 30px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: 0.3s;
+  @include scrollbarStylle();
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+.title {
+  font-size: 30px;
+  margin-bottom: 10px;
+  margin-top: 16px;
+  font-weight: normal;
+  line-height: 120%;
+  @media (max-width: $mobileView) {
+    font-size: 18px;
+  }
+}
+.subtitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  line-height: 28px;
+  font-weight: normal;
+  color: $fontGreyDark;
+  @media (max-width: $mobileView) {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+.filters-container {
+  display: flex;
+  padding: 0px 25px;
+  @media (max-width: $mobileView) {
+    flex-wrap: wrap;
+    font-size: 18px;
+  }
+}
+.text-container {
+  // margin-bottom: -30px;
+  padding: 0px 25px;
+  // @media (max-width: $mobileView) {
+  //   margin-bottom: 30px;
+  // }
+}
+.warning-cached {
+  padding: 0px 25px;
+  font-size: 18px;
+  color: darkred;
+  margin: 0;
+  line-height: 28px;
+  font-weight: normal;
+  @media (max-width: $mobileView) {
+    font-size: 14px;
+    line-height: 25px;
+  }
+}
+.filter-input {
+  padding: 10px;
+  width: 250px;
+  height: 40px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  border: 1px solid rgb(80, 80, 80);
+  &:focus {
+    border: 2px solid rgb(20, 20, 20);
+  }
+}
+.name-input {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.blueFont {
+  color: $blueColor;
+}
+.progress-bar-search {
+  margin-top: 5px;
+  max-width: 333px;
+}
+.btns-container {
+  margin: 40px 0 20px 0;
+  padding: 0px 25px;
+}
+.button {
+  @include buttonMain();
+}
+.button.active {
+  @include buttonMainActive();
+}
+.progress-bar-button {
+  width: 170px;
+  margin-top: 5px;
+  max-width: 333px;
+  @media (max-width: $mobileView) {
+    width: 100px;
+    font-size: 12px;
+  }
+}

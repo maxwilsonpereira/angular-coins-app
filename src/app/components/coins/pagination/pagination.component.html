@@ -1,0 +1,79 @@
+<div *ngIf="coinsDisplayedCount > 0" class="root-div">
+  <div class="page-numbers-div">
+    <!-- LOWER PAGES: -->
+    <span *ngFor="let num of navNumbers">
+      <div
+        *ngIf="pageNumber > num - 1"
+        (click)="setPageNumberHandler(pageNumber - num)"
+        class="page-number-div"
+        id="page-number-left-div{{ num }}"
+        style="transform: translateX(-{{ num * 60 }}px)"
+      >
+        <p class="page-number">{{ pageNumber - num + 1 }}</p>
+      </div>
+    </span>
+
+    <!-- CURRENT PAGE: -->
+    <div
+      class="page-number-div"
+      [class.active]="pageNumber + 1"
+      style="pointer-events: none"
+    >
+      <p class="page-number">{{ pageNumber + 1 }}</p>
+    </div>
+
+    <!-- HIGHER PAGES: -->
+    <span *ngFor="let num of navNumbers">
+      <div
+        *ngIf="pageNumber < totalPages - num"
+        (click)="setPageNumberHandler(pageNumber + num)"
+        class="page-number-div"
+        id="page-number-right-div{{ num }}"
+        style="transform: translateX({{ num * 60 }}px)"
+      >
+        <p class="page-number">{{ pageNumber + num + 1 }}</p>
+      </div>
+    </span>
+  </div>
+
+  <div class="arrows-div">
+    <!-- ARROW LEFT: -->
+    <div class="page-changer-rectangle-left">
+      <span
+        (click)="setPageNumberHandler(pageNumber - 1)"
+        class="page-changer-icon-left"
+        [class.active]="pageNumber < 1"
+        >&#60;</span
+      >
+    </div>
+    <!-- ARROW RIGHT: -->
+    <div class="page-changer-rectangle-right">
+      <span
+        (click)="setPageNumberHandler(pageNumber + 1)"
+        class="page-changer-icon-right"
+        [class.active]="pageNumber + 1 > totalPages - 1"
+        >&#62;</span
+      >
+    </div>
+  </div>
+
+  <!-- PAGE NUMBER INPUT: -->
+  <div class="go-to-page-div">
+    <input
+      class="page-input"
+      placeholder="Page"
+      type="number"
+      maxlength="2"
+      (keyup)="setPageInput($event)"
+      [(ngModel)]="inputPageNumberNgModel"
+    />
+    <button
+      class="btn-page"
+      [class.active]="inputPageNumberNgModel === ''"
+      (click)="goToPage()"
+    >
+      Go
+    </button>
+  </div>
+  <p class="total-pages-text">Total pages: {{ totalPages }}</p>
+</div>

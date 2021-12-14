@@ -1,0 +1,21 @@
+<div id="scroller-wrapper">
+  <div id="scroller">
+    <div class="element">
+      <div class="element-box">
+        <img
+          class="coin-img"
+          src="assets/images/trend-coin-logo.png"
+          alt="cryptocoin-png"
+        />
+        <p class="title">Trending Coins:</p>
+      </div>
+    </div>
+    <div class="element" *ngFor="let coin of trendCoins">
+      <div class="element-box">
+        <img class="coin-img" src="{{ coin.small }}" alt="" />
+        <p class="title">{{ coin.name }}</p>
+        <span class="price"> {{ coin.price_btc.toFixed(10) }}</span>
+      </div>
+    </div>
+  </div>
+</div>

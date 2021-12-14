@@ -1,0 +1,186 @@
+// VARIABLES:
+@import '../../../../styles/variables.scss';
+
+$mobileViewCoinsListComponent: 700px;
+
+.root {
+  display: inline-block;
+  margin-top: 10px;
+  width: 100%;
+  // @media (max-width: $mobileViewCoinsListComponent) {
+  //   margin-top: -20px;
+  // }
+}
+.content {
+  width: 100%;
+}
+.coin-container {
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: rgb(200, 200, 200);
+  }
+  // horizontal line:
+  &:before {
+    content: '';
+    display: block;
+    width: '100%';
+    height: 1px;
+    // margin-bottom: 12px;
+    margin: 0;
+    padding: 0;
+    background: rgb(218, 218, 218);
+  }
+}
+.description {
+  display: inline;
+  font-size: 20px;
+  @media (max-width: $mobileViewCoinsListComponent) {
+    font-size: 16px;
+  }
+}
+.fontWhite {
+  color: #fff;
+}
+.fontBlack {
+  color: #000;
+}
+.identifier {
+  color: black;
+  margin-right: 3px;
+}
+.grid-coins {
+  max-width: $maxWidthContent;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  grid-template-columns: 8% 20% 16% 12% 12% 22%;
+  column-gap: 2%;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 8% 25% 21% 17% 17%;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 12% 36% 28% 15%;
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: 14% 40% 40%;
+  }
+}
+#gridChart,
+#gridChartTitle {
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+#grid24h,
+#grid24hTitle {
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+#grid7d,
+#grid7dTitle {
+  @media (max-width: 500px) {
+    display: none;
+  }
+}
+.gridA {
+  // order: 1;
+  margin-left: 10px;
+}
+// .gridB {
+//   // order: 2;
+// }
+// .gridC {
+//   // order: 3;
+// }
+.gridC {
+  max-width: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+.gridD {
+  // order: 4;
+  margin-right: 10px;
+}
+.grid-div-inside {
+  padding: 30px 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.coin-img {
+  margin: 0;
+  padding: 0;
+  width: 35px;
+}
+.darkerBackgroundDiv {
+  background-color: rgb(240, 240, 240);
+}
+#titlesRow {
+  background: $blueColor;
+  color: '#fff';
+}
+.titlesRowFixed {
+  position: fixed;
+  z-index: 4;
+  width: 100%;
+  top: 0;
+  // horizontal line:
+  &:after {
+    content: '';
+    display: block;
+    width: '100%';
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    background: rgb(218, 218, 218);
+  }
+}
+
+.coin-chart-red {
+  filter: invert(1) sepia(1) hue-rotate(-30deg) saturate(10) brightness(0.7);
+}
+.coin-chart-green {
+  filter: invert(1) sepia(1) hue-rotate(70deg) saturate(10) brightness(1);
+}
+.icon-positive {
+  font-size: 22px;
+  color: green;
+}
+.icon-negative {
+  font-size: 22px;
+  color: rgb(199, 0, 0);
+  transform: rotate(180deg);
+}
+
+// $greenChart: 0;
+// $blueChart: 3;
+// $redChart: 6;
+// // 20 classes PER PAGE!
+// // YELLOW IS THE ORIGINAL COLOR
+// @for $count from 0 through 1 {
+//   // GREEN:
+//   .coin-chart-#{$greenChart},
+//   .coin-chart-#{$greenChart + 1},
+//   .coin-chart-#{$greenChart + 2} {
+//     filter: invert(1) sepia(1) hue-rotate(70deg) saturate(10) brightness(1);
+//   }
+//   $greenChart: $greenChart + 9;
+//   // BLUE:
+//   .coin-chart-#{$blueChart},
+//   .coin-chart-#{$blueChart + 1},
+//   .coin-chart-#{$blueChart + 2} {
+//     filter: invert(1) sepia(1) hue-rotate(160deg) saturate(10) brightness(1);
+//   }
+//   $blueChart: $blueChart + 9;
+//   .coin-chart-#{$redChart},
+//   .coin-chart-#{$redChart + 1},
+//   .coin-chart-#{$redChart + 2} {
+//     filter: invert(1) sepia(1) hue-rotate(-30deg) saturate(10) brightness(1);
+//   }
+//   $redChart: $redChart + 9;
+// }

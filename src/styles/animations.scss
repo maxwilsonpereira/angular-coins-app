@@ -1,0 +1,29 @@
+@mixin fadeInAnimation() {
+  animation: fadeInAnimation 1s linear;
+}
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin fadeInAnimationSlower() {
+  animation: fadeInAnimationSlower 1.6s linear;
+}
+@keyframes fadeInAnimationSlower {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}

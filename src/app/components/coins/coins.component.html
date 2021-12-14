@@ -1,0 +1,90 @@
+<div class="root">
+  <div class="content">
+    <div *ngIf="!(coinsToDisplay | async)" class="loading-container">
+      <!-- imported at app.module.ts: -->
+      <mat-progress-bar
+        class="progress-bar"
+        mode="indeterminate"
+      ></mat-progress-bar>
+      <p class="subtitle">{{ messageToUser }}</p>
+    </div>
+
+    <div class="content-inner" *ngIf="coinsToDisplay | async">
+      <div class="maxWidthClass">
+        <div class="btns-container">
+          <button
+            class="button"
+            (click)="sortBy('name')"
+            [class.active]="orderedBy === 'name'"
+          >
+            Order by Name
+          </button>
+          <button
+            class="button"
+            (click)="sortBy('price')"
+            [class.active]="orderedBy === 'price'"
+          >
+            Order by price
+          </button>
+          <button
+            class="button"
+            (click)="sortBy('symbol')"
+            [class.active]="orderedBy === 'symbol'"
+          >
+            Order by 7d %
+          </button>
+        </div>
+
+        <div class="filters-container">
+          <div class="name-input">
+            <input
+              class="filter-input"
+              placeholder="Filter by name"
+              (keyup)="filterBy($event, 'name')"
+              [(ngModel)]="filterByNameString"
+            />
+          </div>
+          <div class="symbol-input">
+            <input
+              class="filter-input"
+              placeholder="Filter by symbol"
+              (keyup)="filterBy($event, 'symbol')"
+              [(ngModel)]="filterBySymbolString"
+            />
+          </div>
+        </div>
+
+        <div class="text-container">
+          <p class="subtitle blueFont">
+            {{
+              coinsDisplayedCount > 0
+                ? 'click on the coin for details'
+                : 'no coins available for the current search params'
+            }}
+          </p>
+        </div>
+
+        <p *ngIf="coinsAreCheched" class="warning-cached">
+          ⚠️ CoinMarketCap API currently unavailable! Results from
+          {{ coinsAreCheched.monthName }}
+          {{ coinsAreCheched.cacheDate.substring(8, 10) }},
+          {{ coinsAreCheched.cacheDate.substring(0, 4) }}.
+        </p>
+      </div>
+      <app-coins-list
+        [coinsToDisplay]="coinsToDisplay"
+        [pageNumber]="pageNumber"
+        [orderedBy]="orderedBy"
+        [filterByNameString]="filterByNameString"
+        [filterBySymbolString]="filterBySymbolString"
+      ></app-coins-list>
+      <br />
+      <app-pagination
+        [pageNumber]="pageNumber"
+        [totalPages]="totalPages"
+        [coinsDisplayedCount]="coinsDisplayedCount"
+        (setPageNumber)="setPageNumber($event)"
+      ></app-pagination>
+    </div>
+  </div>
+</div>

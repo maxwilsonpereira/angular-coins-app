@@ -1,0 +1,51 @@
+// VARIABLES:
+@import './styles/variables.scss';
+// CLASSES:
+@import './styles/classes.scss';
+// ANIMATIONS:
+@import './styles/animations.scss';
+
+.colors {
+  color: #0c59ff;
+  color: #0044d8; // hover
+  color: rgb(56, 56, 56); // fonts
+}
+
+body {
+  font-family: 'Museo-Sans', Helvetica, Arial, Lucida, sans-serif !important;
+}
+
+html,
+body {
+  background-color: $backgroundColorPrimary;
+  height: 100%;
+}
+
+body * {
+  font-family: 'Museo-Sans', Helvetica, Arial, Lucida, sans-serif !important;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
